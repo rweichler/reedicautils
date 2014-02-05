@@ -6,16 +6,16 @@ BIN=bin
 ARC=-fobjc-arc
 FLAGS=-framework Foundation $(FRAMEWORKS) $(ARC)
 #DYNAMIC=-dynamiclib -undefined suppress -flat_namespace
-OUT=pbcopy
+OUT=$(BIN)/pbcopy
 
 all: $(OUT)
 
 copy: $(OUT)
-	scp $(BIN)/$(OUT) iphone:bin/
+	scp $(OUT) iphone:bin/
 
 clean:
 	rm $(DYLIB)
 
 $(OUT): *.m
-	mkdir $(BIN)
-	$(CC) $^ $(ARCH) $(FLAGS) $(DYNAMIC) -o $(BIN)/$@
+	mkdir -p $(BIN)
+	$(CC) $^ $(ARCH) $(FLAGS) $(DYNAMIC) -o $@
