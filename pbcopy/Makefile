@@ -14,7 +14,7 @@ copy: $(OUT)
 	scp $(OUT) iphone:bin/
 
 clean:
-	rm $(DYLIB)
+	rm $(OUT)
 
 $(OUT): *.m
 	mkdir -p $(BIN)
