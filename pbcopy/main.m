@@ -5,7 +5,7 @@ int main(int argc, char *argv[]) {
     UIApplicationInitialize();
 
     UIPasteboard *pb = [UIPasteboard generalPasteboard];
-    NSMutableString *str = [NSMutableString string];
+    NSMutableString *str = [[[NSMutableString alloc] init] retain];
     if(argc <= 1 || isatty(fileno(stdin)) == 0)
     {
         char buf[BUFSIZ];
@@ -23,6 +23,8 @@ int main(int argc, char *argv[]) {
         }
     }
     pb.string = str;
+
+    [str release];
 
     return 0;
 }
