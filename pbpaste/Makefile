@@ -6,7 +6,7 @@ BIN=../bin
 #ARC=-fobjc-arc
 FLAGS=-framework Foundation $(FRAMEWORKS) $(ARC)
 #DYNAMIC=-dynamiclib -undefined suppress -flat_namespace
-OUT=$(BIN)/pbcopy
+OUT=$(BIN)/pbpaste
 
 all: $(OUT)
 
